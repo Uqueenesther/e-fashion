@@ -8,8 +8,8 @@ const Shop = () =>{
     return (
     <div className='products-container'>
         {
-            products.map((product, id) =>(       
-            <ProductCard key={id} product={product} />
+            products.map((product) =>(       
+            <ProductCard key={product.id} product={product} />
 
             ))
         }
