@@ -1,15 +1,22 @@
 import './Cart-dropdown.scss';
-// import { v4 as uuidv4 } from 'uuid';
+import { useContext } from 'react';
+import { useNavigate } from 'react-router-dom';
 
+import { CartContext } from '../../context/Cart.context';
+// import { v4 as uuidv4 } from 'uuid';
 import Button from '../button/Button';
 import CartItem from '../cart-item/cart-item';
-import { useContext } from 'react';
-import { CartContext } from '../../context/Cart.context';
 
 
 
 const CartDropdown = () => {
   const {cartItems} = useContext(CartContext);
+  const navigate = useNavigate();
+
+  const goToCheckoutHandler = () =>{
+    navigate('/checkout')
+  }
+
     return (
         <div className='cart-dropdown-container'>
           <div className='cart-items' />
@@ -18,7 +25,7 @@ const CartDropdown = () => {
             {/* {cartItems.map((item) => ( <CartItem key={uuidv4()} cartItem={item} />))} */}
 
           </div>
-            <Button>GO TO CHECKOUT</Button>
+            <Button onClick={goToCheckoutHandler}>GO TO CHECKOUT</Button>
           
         </div>
     )
